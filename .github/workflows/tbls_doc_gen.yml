@@ -47,7 +47,7 @@ jobs:
 
     - name: Generate docs
       run: |
-        tbls doc
+        tbls doc --force
 
     # - name: Commit and Push generated docs
     #   run: |
