@@ -49,15 +49,6 @@ jobs:
       run: |
         tbls doc --force
 
-    # - name: Commit and Push generated docs
-    #   run: |
-    #     git config --global user.name 'github-actions[bot]'
-    #     git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-    #     git checkout -b update/generated-docs
-    #     git add docs
-    #     git commit -m 'Update generated docs'
-    #     git push origin update/generated-docs --force
-
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
       with:
@@ -69,7 +60,7 @@ jobs:
   #   - name: Upload artifact
   #     uses: actions/upload-pages-artifact@v3
   #     with:
-  #       path: ./docs
+  #       path: docs
 
   # deploy: 
   #   needs: build

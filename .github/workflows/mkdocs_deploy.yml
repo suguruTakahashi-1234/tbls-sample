@@ -1,0 +1,28 @@
+name: tbls doc gen
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install mkdocs and plugins
+      run: |
+        pip install -r requirements.txt
+
+    - name: Build MkDocs site
+      run: |
+        mkdocs gh-deploy --force
