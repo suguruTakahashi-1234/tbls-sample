@@ -51,7 +51,7 @@ jobs:
         git checkout -b update/generated-docs
         git add docs
         git commit -m 'Update generated docs'
-        git push origin update/generated-docs
+        git push origin update/generated-docs --force
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
