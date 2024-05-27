@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'tbls_gen_docs/**'
   workflow_dispatch:
 
 permissions:
