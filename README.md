@@ -32,6 +32,8 @@
   - https://zenn.dev/micin/articles/2023-12-05-majimaccho-tbls
 - tblsのViewPoint機能を用いたGithub Actions上でのDBドキュメントの自動生成
   - https://engineers.safie.link/entry/2023/12/02/build-db-doc-by-tbls
+- tbls と GitHub Actions を使ったスキーマ情報を管理する仕組みについて検証しました
+  - https://developer.so-tech.co.jp/entry/2023/05/15/103745
 - GitHub Actions
   - https://github.com/k1LoW/setup-tbls
   - https://github.com/peter-evans/create-pull-request
