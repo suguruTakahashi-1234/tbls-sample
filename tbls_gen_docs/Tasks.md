@@ -52,7 +52,30 @@ CREATE TABLE `Tasks` (
 
 ## Relations
 
-![er](Tasks.svg)
+```mermaid
+erDiagram
+
+"Tasks" }o--|| "ToDoLists" : "FOREIGN KEY (todo_list_id) REFERENCES ToDoLists (id)"
+
+"Tasks" {
+  int id PK
+  int todo_list_id FK
+  varchar_100_ title
+  text description
+  date due_date
+  varchar_20_ status
+  timestamp created_at
+  timestamp updated_at
+}
+"ToDoLists" {
+  int id PK
+  int user_id FK
+  varchar_100_ title
+  text description
+  timestamp created_at
+  timestamp updated_at
+}
+```
 
 ---
 

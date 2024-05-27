@@ -50,7 +50,28 @@ CREATE TABLE `Users` (
 
 ## Relations
 
-![er](Users.svg)
+```mermaid
+erDiagram
+
+"ToDoLists" }o--|| "Users" : "FOREIGN KEY (user_id) REFERENCES Users (id)"
+
+"Users" {
+  int id PK
+  varchar_50_ username
+  varchar_100_ email
+  varchar_255_ password_hash
+  timestamp created_at
+  timestamp updated_at
+}
+"ToDoLists" {
+  int id PK
+  int user_id FK
+  varchar_100_ title
+  text description
+  timestamp created_at
+  timestamp updated_at
+}
+```
 
 ---
 
