@@ -2,21 +2,23 @@
 
 ## Description
 
+ユーザーのToDoリストを保存するテーブル
+
 <details>
 <summary><strong>Table Definition</strong></summary>
 
 ```sql
 CREATE TABLE `ToDoLists` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `description` text,
+  `user_id` int NOT NULL COMMENT 'ユーザーID',
+  `title` varchar(100) NOT NULL COMMENT 'タイトル',
+  `description` text COMMENT '説明',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `ToDoLists_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='ユーザーのToDoリストを保存するテーブル'
 ```
 
 </details>
@@ -26,9 +28,9 @@ CREATE TABLE `ToDoLists` (
 | Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
 | ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
 | id | int |  | false | auto_increment | [Tasks](Tasks.md) |  |  |
-| user_id | int |  | false |  |  | [Users](Users.md) |  |
-| title | varchar(100) |  | false |  |  |  |  |
-| description | text |  | true |  |  |  |  |
+| user_id | int |  | false |  |  | [Users](Users.md) | ユーザーID |
+| title | varchar(100) |  | false |  |  |  | タイトル |
+| description | text |  | true |  |  |  | 説明 |
 | created_at | timestamp | CURRENT_TIMESTAMP | true | DEFAULT_GENERATED |  |  |  |
 | updated_at | timestamp | CURRENT_TIMESTAMP | true | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |  |  |  |
 
