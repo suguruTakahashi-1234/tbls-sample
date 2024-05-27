@@ -4,9 +4,9 @@
 
 | Name | Columns | Comment | Type |
 | ---- | ------- | ------- | ---- |
-| [Tasks](Tasks.md) | 8 |  | BASE TABLE |
-| [ToDoLists](ToDoLists.md) | 6 |  | BASE TABLE |
-| [Users](Users.md) | 6 |  | BASE TABLE |
+| [Tasks](Tasks.md) | 8 | ToDoリストのタスクを保存するテーブル | BASE TABLE |
+| [ToDoLists](ToDoLists.md) | 6 | ユーザーのToDoリストを保存するテーブル | BASE TABLE |
+| [Users](Users.md) | 6 | ユーザー情報を保存するテーブル | BASE TABLE |
 
 ## Relations
 
