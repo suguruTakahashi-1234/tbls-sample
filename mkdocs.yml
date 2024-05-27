@@ -1,13 +1,13 @@
-site_name: DB Schema  # サイトの名前
+site_name: DB Schema
 
 theme:
-  name: material  # テーマの名前
-  language: ja  # 使用する言語
+  name: material
+  language: ja
 
 plugins:
-  - search  # 検索機能の追加
-  - include-markdown  # Markdownファイルをインクルードするプラグイン
-  - glightbox  # 画像のライトボックス表示用プラグイン
+  - search
+  - include-markdown
+  - glightbox
 
 # Ref: tblsのViewPoint機能を用いたGithub Actions上でのDBドキュメントの自動生成 - https://engineers.safie.link/entry/2023/12/02/build-db-doc-by-tbls#skeema-%E3%81%AB%E3%82%88%E3%82%8BDB%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%9E%E3%81%AE%E9%81%A9%E7%94%A8
 markdown_extensions:
