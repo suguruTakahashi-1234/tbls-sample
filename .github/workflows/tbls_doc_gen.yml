@@ -48,20 +48,20 @@ jobs:
       run: |
         tbls doc
 
-    - name: Commit and Push generated docs
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git checkout -b update/generated-docs
-        git add docs
-        git commit -m 'Update generated docs'
-        git push origin update/generated-docs --force
+    # - name: Commit and Push generated docs
+    #   run: |
+    #     git config --global user.name 'github-actions[bot]'
+    #     git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+    #     git checkout -b update/generated-docs
+    #     git add docs
+    #     git commit -m 'Update generated docs'
+    #     git push origin update/generated-docs --force
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
       with:
-        commit-message: Update generated docs
         branch: update/generated-docs
+        commit-message: Update generated docs
         title: Update generated docs
         body: This PR updates the generated docs.
 
