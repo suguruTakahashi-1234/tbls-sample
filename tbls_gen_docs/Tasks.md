@@ -2,23 +2,25 @@
 
 ## Description
 
+ToDoリストのタスクを保存するテーブル
+
 <details>
 <summary><strong>Table Definition</strong></summary>
 
 ```sql
 CREATE TABLE `Tasks` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `todo_list_id` int NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `description` text,
-  `due_date` date DEFAULT NULL,
-  `status` varchar(20) DEFAULT 'pending',
+  `todo_list_id` int NOT NULL COMMENT 'ToDoリストID',
+  `title` varchar(100) NOT NULL COMMENT 'タスクのタイトル',
+  `description` text COMMENT 'タスクの説明',
+  `due_date` date DEFAULT NULL COMMENT '期限日',
+  `status` enum('pending','in_progress','completed') NOT NULL DEFAULT 'pending' COMMENT 'ステータス',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `todo_list_id` (`todo_list_id`),
   CONSTRAINT `Tasks_ibfk_1` FOREIGN KEY (`todo_list_id`) REFERENCES `ToDoLists` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='ToDoリストのタスクを保存するテーブル'
 ```
 
 </details>
@@ -28,11 +30,11 @@ CREATE TABLE `Tasks` (
 | Name | Type | Default | Nullable | Extra Definition | Children | Parents | Comment |
 | ---- | ---- | ------- | -------- | ---------------- | -------- | ------- | ------- |
 | id | int |  | false | auto_increment |  |  |  |
-| todo_list_id | int |  | false |  |  | [ToDoLists](ToDoLists.md) |  |
-| title | varchar(100) |  | false |  |  |  |  |
-| description | text |  | true |  |  |  |  |
-| due_date | date |  | true |  |  |  |  |
-| status | varchar(20) | pending | true |  |  |  |  |
+| todo_list_id | int |  | false |  |  | [ToDoLists](ToDoLists.md) | ToDoリストID |
+| title | varchar(100) |  | false |  |  |  | タスクのタイトル |
+| description | text |  | true |  |  |  | タスクの説明 |
+| due_date | date |  | true |  |  |  | 期限日 |
+| status | enum('pending','in_progress','completed') | pending | false |  |  |  | ステータス |
 | created_at | timestamp | CURRENT_TIMESTAMP | true | DEFAULT_GENERATED |  |  |  |
 | updated_at | timestamp | CURRENT_TIMESTAMP | true | DEFAULT_GENERATED on update CURRENT_TIMESTAMP |  |  |  |
 
