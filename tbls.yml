@@ -2,6 +2,9 @@ dsn: mysql://user:password@127.0.0.1:3306/tbls_database
 
 docPath: tbls_gen_docs
 
+# er:
+#   format: mermaid
+
 lint:
   requireTableComment:
     enabled: true
