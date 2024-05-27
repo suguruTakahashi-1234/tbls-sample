@@ -24,9 +24,6 @@ markdown_extensions:
   - pymdownx.tabbed  # タブ付きコンテンツの有効化
   - pymdownx.superfences  # スーパーフェンス機能の有効化
   - admonition
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji  # Twemojiを使用した絵文字インデックス
-      emoji_generator: !!python/name:materialx.emoji.to_svg  # SVG形式の絵文字生成
   - attr_list  # ボタン表示のための属性リスト
 
 docs_dir: tbls_gen_docs
