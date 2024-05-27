@@ -4,14 +4,16 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 300
 
     services:
       mysql:
-        image: mysql:latest
+        image: mysql:8
         env:
           MYSQL_DATABASE: todo_database
           MYSQL_USER: user
@@ -19,11 +21,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: rootpassword
         ports:
           - 3306:3306
-        options: >-
-          --health-cmd "mysqladmin ping --silent"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+        options: --health-cmd "mysqladmin ping -h localhost" --health-interval 20s --health-timeout 10s --health-retries 10
 
     steps:
     - name: Checkout repository
@@ -40,7 +38,7 @@ jobs:
         mysql --host=127.0.0.1 --user=user --password=password todo_database < sql/create_tables.sql
 
     - name: Set up tbls
-      uses: k1low/setup-tbls@v1.2.0
+      uses: k1low/setup-tbls@v1
 
     - name: Generate docs
       run: |
