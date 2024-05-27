@@ -8,4 +8,5 @@ plugins:
   - search
   - include-markdown
 
+docs_dir: tbls
 site_dir: mkdocs
