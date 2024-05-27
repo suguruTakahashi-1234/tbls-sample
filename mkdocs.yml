@@ -1,26 +1,33 @@
-site_name: DB Schema
+site_name: DB Schema  # サイトの名前
 
 theme:
-  name: material
-  language: ja
+  name: material  # テーマの名前
+  language: ja  # 使用する言語
 
 plugins:
-  - search
-  - include-markdown
-  - glightbox
+  - search  # 検索機能の追加
+  - include-markdown  # Markdownファイルをインクルードするプラグイン
+  - glightbox  # 画像のライトボックス表示用プラグイン
 
 markdown_extensions:
   - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
+      anchor_linenums: true  # 行番号のアンカーを表示
+      line_spans: __span  # 行のスパンのクラス名を設定
+      pygments_lang_class: true  # 言語クラスをPygmentsのスタイルで設定
+  - pymdownx.inlinehilite  # インラインハイライトの有効化
+  - pymdownx.snippets  # スニペット機能の有効化
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed  # タブ付きコンテンツの有効化
+  - pymdownx.superfences  # スーパーフェンス機能の有効化
+  - admonition  # アラート装飾の有効化
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji  # Twemojiを使用した絵文字インデックス
+      emoji_generator: !!python/name:materialx.emoji.to_svg  # SVG形式の絵文字生成
+  - attr_list  # ボタン表示のための属性リスト
 
-docs_dir: tbls
-site_dir: mkdocs
+docs_dir: tbls  # ドキュメントのディレクトリ
+site_dir: mkdocs  # サイトのディレクトリ
