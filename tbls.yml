@@ -1,2 +1,2 @@
-dsn: "mysql://user:password@tcp(localhost:3306)/todo_database"
+dsn: "mysql://user:password@tcp(127.0.0.1:3306)/todo_database"
 docPath: "./docs"
