@@ -9,22 +9,23 @@ plugins:
   - include-markdown  # Markdownファイルをインクルードするプラグイン
   - glightbox  # 画像のライトボックス表示用プラグイン
 
+# Ref: tblsのViewPoint機能を用いたGithub Actions上でのDBドキュメントの自動生成 - https://engineers.safie.link/entry/2023/12/02/build-db-doc-by-tbls#skeema-%E3%81%AB%E3%82%88%E3%82%8BDB%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%9E%E3%81%AE%E9%81%A9%E7%94%A8
 markdown_extensions:
   - pymdownx.highlight:
-      anchor_linenums: true  # 行番号のアンカーを表示
-      line_spans: __span  # 行のスパンのクラス名を設定
-      pygments_lang_class: true  # 言語クラスをPygmentsのスタイルで設定
-  - pymdownx.inlinehilite  # インラインハイライトの有効化
-  - pymdownx.snippets  # スニペット機能の有効化
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed  # タブ付きコンテンツの有効化
-  - pymdownx.superfences  # スーパーフェンス機能の有効化
+  - pymdownx.tabbed
+  - pymdownx.superfences
   - admonition
-  - attr_list  # ボタン表示のための属性リスト
+  - attr_list
 
 docs_dir: tbls_gen_docs
 site_dir: mkdocs_gen_docs
