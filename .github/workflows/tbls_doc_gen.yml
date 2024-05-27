@@ -46,7 +46,7 @@ jobs:
 
     - name: Generate docs
       run: |
-        tbls doc --force
+        tbls doc --rm-dist
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v6
