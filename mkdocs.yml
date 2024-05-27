@@ -29,5 +29,5 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg  # SVG形式の絵文字生成
   - attr_list  # ボタン表示のための属性リスト
 
-docs_dir: tbls  # ドキュメントのディレクトリ
-site_dir: mkdocs  # サイトのディレクトリ
+docs_dir: tbls_gen_docs
+site_dir: mkdocs_gen_docs
