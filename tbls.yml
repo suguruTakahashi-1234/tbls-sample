@@ -1,3 +1,14 @@
 dsn: mysql://user:password@127.0.0.1:3306/tbls_database
 
 docPath: tbls_gen_docs
+
+lint:
+  requireTableComment:
+    enabled: true
+  requireColumnComment:
+    enabled: true
+    exclude:
+      - id
+      - updated_at
+      - created_at
+      - deleted_at
