@@ -9,27 +9,40 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: todo_database
+          MYSQL_USER: user
+          MYSQL_PASSWORD: password
+          MYSQL_ROOT_PASSWORD: rootpassword
+        ports:
+        - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping --silent"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Set up Docker Compose
-      run: |
-        docker-compose up -d
-        docker-compose ps
-
     - name: Wait for MySQL to be ready
       run: |
-        while ! docker-compose exec mysql mysqladmin ping --silent; do sleep 1; done
+        until mysqladmin ping --host=127.0.0.1 --user=user --password=password --silent; do sleep 1; done
 
     - name: Create tables
-      run: docker-compose exec -T mysql mysql -uuser -ppassword todo_database < sql/create_tables.sql
+      run: |
+        mysql --host=127.0.0.1 --user=user --password=password todo_database < sql/create_tables.sql
 
     - name: Set up tbls
       uses: k1low/setup-tbls@v1
 
     - name: Generate docs
-      run: tbls doc
+      run: |
+        tbls doc
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
