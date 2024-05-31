@@ -1,5 +1,11 @@
 # tbls docs
 
+## 概要
+
+[tbls](https://github.com/k1LoW/tbls) と GitHub Actions を用いて、MySQL の CREATE TABLE 文を元に生成したテーブル定義書を、GitHub Pages で公開することを検証したリポジトリです。
+
+### Step
+
 1. CREATE TABLE 文を記述した [schema.sql](./sql/schema.sql) を更新する
 2. main branch の更新をトリガーに GitHub Actions 上で、[tbls](https://github.com/k1LoW/tbls) によって DB ドキュメントを Markdown 形式で生成し、DB ドキュメント更新の PR を自動作成する
 3. PR をレビューして merge する
@@ -8,7 +14,7 @@
 
 生成されたドキュメントの書式は、[tbls.yml](./tbls.yml) や [mkdocs.yml](mkdocs.yml) で変更可能であり、詳しくは公式ドキュメントを参照ください。
 
-### DB Documents on GitHub Pages
+### Tables Spec on GitHub Pages
 
 - https://sugurutakahashi-1234.github.io/tbls-sample/
 
